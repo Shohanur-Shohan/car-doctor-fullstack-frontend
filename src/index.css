@@ -7,3 +7,8 @@
 html {
     font-family: "Inter", sans-serif;
 }
+
+.my-shadow {
+    background: rgb(0, 0, 0) !important;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9892157546612395) 0%, rgba(255, 255, 255, 0) 100%) !important;
+}

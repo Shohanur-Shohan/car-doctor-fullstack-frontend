@@ -2,13 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="w-full bg-primary shadow-md shadow-b-[5px] -shadow-spread-2">
-      <div className="navbar  max-w-[1536px] mx-auto flex items-center px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4 md:py-5">
+    <header className="w-full bg-primary shadow-md shadow-b-[5px] -shadow-spread-2">
+      <div className="navbar max-w-[1536px] mx-auto justify-between flex items-center px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4">
         <div className="navbar-start">
           <Link href={"/"} className="">
             <img
               src="/assets/logo.png"
-              className="max-w-[110px] sm:max-w-[130px] md:max-w-[150px] xl:max-w-[180px] max-h-[55px]"
+              className="max-w-[110px] sm:max-w-[130px] md:max-w-[150px] xl:max-w-[180px] max-h-[60px]"
               alt="logo"
             />
           </Link>
@@ -61,7 +61,7 @@ const Header = () => {
         {/* desktop-menu */}
 
         <div className="navbar-end">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-end gap-2">
             {/* search & cart*/}
             <div>
               <img src="/assets/cart.svg" alt="cart" />
@@ -106,14 +106,14 @@ const Header = () => {
 
             <Link
               to={"/appoinment"}
-              className="hidden sm:flex px-4  py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] bg-transparent hover:bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium text-[#FF3811] hover:text-[#fff]"
+              className="hidden sm:flex px-4  py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]"
             >
               Appoinment
             </Link>
           </div>
 
           {/* drawer */}
-          <div className="drawer drawer-end w-fit">
+          <div className="z-50 drawer drawer-end w-fit">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
               {/* Page content here */}
@@ -196,7 +196,7 @@ const Header = () => {
                 <li className="mb-5 ">
                   <Link
                     to={"/appoinment"}
-                    className="sm:hidden text-center flex px-4  py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] bg-transparent hover:bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium text-[#FF3811] hover:text-[#fff]"
+                    className="sm:hidden text-center flex px-4  py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]"
                   >
                     Appoinment
                   </Link>
@@ -208,7 +208,7 @@ const Header = () => {
           {/* drawer */}
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
