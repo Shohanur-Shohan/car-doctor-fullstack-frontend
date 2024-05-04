@@ -18,16 +18,10 @@ const Hero = () => {
                   majority have suffered alteration in some form
                 </p>
                 <div className="justify-center gap-3 sm:flex md:justify-start">
-                  <button
-                    to={"/appoinment"}
-                    className="px-4 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]"
-                  >
+                  <button className="px-4 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[12px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]">
                     Discover More
                   </button>
-                  <button
-                    to={"/appoinment"}
-                    className="px-4 mt-2 sm:mt-0 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] bg-transparent hover:bg-[#FF3811] transition-colors hover:border-[#FF3811] border-[#fff] border rounded-md  font-medium text-[#fff] hover:text-[#fff]"
-                  >
+                  <button className="px-4 mt-2 sm:mt-0 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[12px] bg-transparent hover:bg-[#FF3811] transition-colors hover:border-[#FF3811] border-[#fff] border rounded-md  font-medium text-[#fff] hover:text-[#fff]">
                     Latest Projects
                   </button>
                 </div>
@@ -58,16 +52,10 @@ const Hero = () => {
                   majority have suffered alteration in some form
                 </p>
                 <div className="justify-center gap-3 sm:flex md:justify-start">
-                  <button
-                    to={"/appoinment"}
-                    className="px-4 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]"
-                  >
+                  <button className="px-4 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[12px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]">
                     Discover More
                   </button>
-                  <button
-                    to={"/appoinment"}
-                    className="px-4 mt-2 sm:mt-0 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] bg-transparent hover:bg-[#FF3811] transition-colors hover:border-[#FF3811] border-[#fff] border rounded-md  font-medium text-[#fff] hover:text-[#fff]"
-                  >
+                  <button className="px-4 mt-2 sm:mt-0 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[12px] bg-transparent hover:bg-[#FF3811] transition-colors hover:border-[#FF3811] border-[#fff] border rounded-md  font-medium text-[#fff] hover:text-[#fff]">
                     Latest Projects
                   </button>
                 </div>
@@ -98,16 +86,10 @@ const Hero = () => {
                   majority have suffered alteration in some form
                 </p>
                 <div className="justify-center gap-3 sm:flex md:justify-start">
-                  <button
-                    to={"/appoinment"}
-                    className="px-4 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]"
-                  >
+                  <button className="px-4 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[12px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]">
                     Discover More
                   </button>
-                  <button
-                    to={"/appoinment"}
-                    className="px-4 mt-2 sm:mt-0 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[10px] bg-transparent hover:bg-[#FF3811] transition-colors hover:border-[#FF3811] border-[#fff] border rounded-md  font-medium text-[#fff] hover:text-[#fff]"
-                  >
+                  <button className="px-4 mt-2 sm:mt-0 block sm:flex mx-auto sm:m-0 py-[7px] sm:px-5 sm:py-[8px] xl:px-7 xl:py-[12px] bg-transparent hover:bg-[#FF3811] transition-colors hover:border-[#FF3811] border-[#fff] border rounded-md  font-medium text-[#fff] hover:text-[#fff]">
                     Latest Projects
                   </button>
                 </div>

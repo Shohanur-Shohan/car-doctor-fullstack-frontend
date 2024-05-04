@@ -19,7 +19,7 @@ const Header = () => {
             <li>
               <NavLink
                 to={"/"}
-                className="text-secondary  font-medium hover:text-[#9ea18e] transition-colors"
+                className="text-secondary  font-medium hover:text-[#FF3811] transition-colors"
               >
                 Home
               </NavLink>
@@ -27,7 +27,7 @@ const Header = () => {
             <li>
               <NavLink
                 to={"/about"}
-                className="text-secondary  font-medium hover:text-[#9ea18e] transition-colors"
+                className="text-secondary  font-medium hover:text-[#FF3811] transition-colors"
               >
                 About
               </NavLink>
@@ -35,7 +35,7 @@ const Header = () => {
             <li>
               <NavLink
                 to={"/services"}
-                className="text-secondary  font-medium hover:text-[#9ea18e] transition-colors"
+                className="text-secondary  font-medium hover:text-[#FF3811] transition-colors"
               >
                 Services
               </NavLink>
@@ -43,7 +43,7 @@ const Header = () => {
             <li>
               <NavLink
                 to={"/blogs"}
-                className="text-secondary  font-medium hover:text-[#9ea18e] transition-colors"
+                className="text-secondary  font-medium hover:text-[#FF3811] transition-colors"
               >
                 Blogs
               </NavLink>
@@ -51,9 +51,9 @@ const Header = () => {
             <li>
               <NavLink
                 to={"/contact"}
-                className="text-secondary  font-medium hover:text-[#9ea18e] transition-colors"
+                className="text-secondary  font-medium hover:text-[#FF3811] transition-colors"
               >
-                contact
+                Contact
               </NavLink>
             </li>
           </ul>
@@ -156,7 +156,7 @@ const Header = () => {
                 <li className="mb-5 ">
                   <NavLink
                     to={"/"}
-                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#9ea18e] transition-colors"
+                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#FF3811] transition-colors"
                   >
                     Home
                   </NavLink>
@@ -164,7 +164,7 @@ const Header = () => {
                 <li className="mb-5 ">
                   <NavLink
                     to={"/about"}
-                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#9ea18e] transition-colors"
+                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#FF3811] transition-colors"
                   >
                     About
                   </NavLink>
@@ -172,7 +172,7 @@ const Header = () => {
                 <li className="mb-5 ">
                   <NavLink
                     to={"/services"}
-                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#9ea18e] transition-colors"
+                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#FF3811] transition-colors"
                   >
                     Services
                   </NavLink>
@@ -180,7 +180,7 @@ const Header = () => {
                 <li className="mb-5 ">
                   <NavLink
                     to={"/blogs"}
-                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#9ea18e] transition-colors"
+                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#FF3811] transition-colors"
                   >
                     Blogs
                   </NavLink>
@@ -188,7 +188,7 @@ const Header = () => {
                 <li className="mb-5 ">
                   <NavLink
                     to={"/contact"}
-                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#9ea18e] transition-colors"
+                    className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#FF3811] transition-colors"
                   >
                     Contact
                   </NavLink>
