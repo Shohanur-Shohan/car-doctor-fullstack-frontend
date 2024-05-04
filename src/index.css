@@ -16,3 +16,14 @@ html {
 .active {
     color: #FF3811;
 }
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 0px) !important;
+}
+
+.swiper-horizontal {
+    padding-bottom: 50px !important;
+}
