@@ -5,7 +5,7 @@ const Header = () => {
     <header className="w-full bg-primary shadow-md shadow-b-[5px] -shadow-spread-2">
       <div className="navbar max-w-[1536px] mx-auto justify-between flex items-center px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4">
         <div className="navbar-start">
-          <Link href={"/"} className="">
+          <Link to={"/"} className="">
             <img
               src="/assets/logo.png"
               className="max-w-[110px] sm:max-w-[130px] md:max-w-[150px] xl:max-w-[180px] max-h-[60px]"

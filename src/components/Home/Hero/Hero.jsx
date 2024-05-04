@@ -8,7 +8,7 @@ const Hero = () => {
               <img src="/assets/hero1.png" className="w-full h-full" />
             </div>
             <div className="absolute w-full h-full my-shadow"></div>
-            <div className="absolute flex items-start sm:items-center justify-start h-full md:left-[50px] lg:left-[100px] w-full md:w-2/4">
+            <div className="absolute flex items-start sm:items-center justify-start h-full md:left-[50px] xl:left-[100px] w-full md:w-2/4">
               <div className="p-0 mt-8 sm:px-8 md:p-0 sm:mt-0">
                 <h1 className="text-[36px] md:text-[40px] lg:text-[56px] xl:text-[65px] 2xl:text-[75px] text-center md:text-left font-semibold text-white leading-[40px] md:leading-[50px] lg:leading-[70px] 2xl:leading-[80px]">
                   Affordable Price For Car Servicing
