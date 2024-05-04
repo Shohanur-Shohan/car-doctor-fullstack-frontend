@@ -3,7 +3,7 @@ const Footer = () => {
     <>
       <footer className="w-full border-t border-secondary/30">
         {/* Grid */}
-        <div className="w-full bg-primary pb-[20px] pt-[40px]">
+        <div className="w-full bg-white pb-[20px] pt-[40px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5 max-w-[1536px] mx-auto px-4 lg:px-7.5 xl:px-10 pb-4 pt-8">
             <div className="justify-center col-span-1 text-center sm:text-left sm:justify-start md:justify-start lg:col-span-2">
               <div className="">
@@ -118,7 +118,7 @@ const Footer = () => {
           </div>
         </div>
         {/* End Grid */}
-        <div className="w-full bg-[#0F172A]">
+        <div className="w-full bg-[#151515]">
           <div className="grid sm:gap-y-0 sm:flex sm:justify-between sm:items-center max-w-[1536px] mx-auto px-4 lg:px-7.5 xl:px-10 pb-6 pt-6">
             <div className="flex items-center justify-between">
               <p className="mx-auto text-sm text-white sm:m-0">
