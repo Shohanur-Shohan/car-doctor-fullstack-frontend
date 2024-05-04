@@ -16,11 +16,9 @@ const Team = () => {
       <div className="w-full mb-[100px]">
         <div className="max-w-[1536px] mx-auto px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4">
           <div className="text-center max-w-[720px] mx-auto">
-            <h6 className="text-[#FF3811] font-bold text-[20px] mb-3">
-              Popular Products
-            </h6>
+            <h6 className="text-[#FF3811] font-bold text-[20px] mb-3">Team</h6>
             <h1 className="text-[24px] sm:text-[30px] lg:text-[45px] font-bold leading-[30px] sm:leading-[40px] lg:leading-[60px] text-[#151515]">
-              Browse Our Products
+              Meet Our Team
             </h1>
             <p className="text-[14px] text-[#737373] md:text-[16px] mb-[25px] mt-[35px]">
               The majority have suffered alteration in some form, by injected
