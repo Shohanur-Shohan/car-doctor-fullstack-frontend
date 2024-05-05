@@ -1,10 +1,11 @@
 import Header from "../../components/Header";
+import SignIn from "../../components/SignIn";
 
 const Login = () => {
   return (
     <>
       <Header />
-      login
+      <SignIn />
     </>
   );
 };
