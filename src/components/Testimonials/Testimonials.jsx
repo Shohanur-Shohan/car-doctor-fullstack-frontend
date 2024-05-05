@@ -30,17 +30,19 @@ const Testimonials = () => {
 
   return (
     <div className="max-w-[1536px] mx-auto px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-center text-gray-900 sm:text-2xl lg:text-4xl lg:text-left">
-          Testimonials
-        </h2>
+      <div className="relative flex items-center justify-between ">
+        <div>
+          <h2 className="text-2xl font-bold text-center text-gray-900 sm:text-2xl lg:text-4xl lg:text-left">
+            Testimonials
+          </h2>
+        </div>
+
         {/* Slider controls */}
-        <div className="flex items-center gap-8">
+        <div className="relative flex items-center justify-end gap-8">
           <div
             className="border border-indigo-600 rounded-full hover:bg-indigo-600 swiper-button-prev group"
             onClick={goPrev}
           >
-            {/* <button className="flex items-center justify-center w-12 h-12 transition-all duration-500 border border-indigo-600 border-solid rounded-full "> */}
             <svg
               className="text-indigo-600 group-hover:text-white"
               viewBox="0 0 24 24"
