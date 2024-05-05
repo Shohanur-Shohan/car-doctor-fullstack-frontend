@@ -1,7 +1,7 @@
 const Newsletter = () => {
   return (
     <>
-      <div className="w-full pb-[100px] mt-[80px]">
+      <div className="w-full pb-[100px]">
         <div className="max-w-[1536px]  mx-auto px-4 lg:px-7.5 xl:px-10 ">
           <div className="px-2 py-5 text-center rounded-lg sm:px-4 md:py-10 bg-accent lg:py-16">
             <div className="max-w-2xl mx-auto">
