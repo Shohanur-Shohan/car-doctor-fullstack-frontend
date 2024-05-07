@@ -7,12 +7,12 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import About from "../pages/About/About";
 import Services from "../pages/Services/Services";
-import Blog from "../pages/Blog/Blog";
 import Appoinment from "../pages/Appoinment/Appoinment";
 import Checkout from "../pages/Checkout/Checkout";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import CartDetails from "../pages/CartDetails/CartDetails";
 import Order from "../pages/Order/Order";
+import Blogs from "../pages/Blog/Blogs";
 
 const Router = createBrowserRouter([
   {
@@ -38,7 +38,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/blogs",
-        element: <Blog />,
+        element: <Blogs />,
       },
       {
         path: "/appoinment",
