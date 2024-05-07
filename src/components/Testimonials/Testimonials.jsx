@@ -40,11 +40,11 @@ const Testimonials = () => {
         {/* Slider controls */}
         <div className="relative flex items-center justify-end gap-8">
           <div
-            className="border border-indigo-600 rounded-full hover:bg-indigo-600 swiper-button-prev group"
+            className="border border-[#FF3811] rounded-full hover:bg-[#FF3811] swiper-button-prev group"
             onClick={goPrev}
           >
             <svg
-              className="text-indigo-600 group-hover:text-white"
+              className="text-[#FF3811] group-hover:text-white"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -60,11 +60,11 @@ const Testimonials = () => {
             {/* </button> */}
           </div>
           <div
-            className="border border-indigo-600 rounded-full hover:bg-indigo-600 swiper-button-next group"
+            className="border border-[#FF3811] rounded-full hover:bg-[#FF3811] swiper-button-next group"
             onClick={goNext}
           >
             <svg
-              className="text-indigo-600 group-hover:text-white"
+              className="text-[#FF3811] group-hover:text-white"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

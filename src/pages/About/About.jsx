@@ -1,5 +1,3 @@
-// import MemberCard from "../../components/MemberCard";
-
 const About = () => {
   return (
     <>

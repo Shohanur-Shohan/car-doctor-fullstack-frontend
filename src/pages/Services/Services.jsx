@@ -68,7 +68,7 @@ const Services = () => {
                     id="service-description"
                     name="service-description"
                     className="block w-full h-[250px] px-4 py-3 text-sm border border-gray-200 shadow-sm bg-[#fff] rounded-lg focus:border-[#FF3811] focus:ring-[#FF3811]"
-                    placeholder="Text here"
+                    placeholder="Product description"
                     required=""
                   />
                 </div>
@@ -78,7 +78,7 @@ const Services = () => {
                 type="submit"
                 className="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-semibold text-white hover:text-[#FF3811] transition-colors bg-[#FF3811] border border-[#FF3811] rounded-lg gap-x-2 hover:bg-transparent"
               >
-                Register
+                Submit
               </button>
             </div>
           </form>

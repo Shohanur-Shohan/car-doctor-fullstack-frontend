@@ -11,6 +11,8 @@ import Blog from "../pages/Blog/Blog";
 import Appoinment from "../pages/Appoinment/Appoinment";
 import Checkout from "../pages/Checkout/Checkout";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
+import CartDetails from "../pages/CartDetails/CartDetails";
+import Order from "../pages/Order/Order";
 
 const Router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ const Router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />,
+      },
+      {
+        path: "/cart-details",
+        element: <CartDetails />,
+      },
+      {
+        path: "/all-orders",
+        element: <Order />,
       },
     ],
   },

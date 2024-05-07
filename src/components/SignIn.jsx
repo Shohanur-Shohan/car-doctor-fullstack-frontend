@@ -1,6 +1,81 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import { AuthContext } from "../providers/FirebaseAuthProvider";
+import { useForm } from "react-hook-form";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
+  const [eye, setEye] = useState(false);
+
+  const {
+    setLoading,
+    logInUser,
+    setUser,
+    handleGoogleLogin,
+    handleGithubLogin,
+  } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleSignIn = (data) => {
+    const email = data?.email;
+    const password = data?.password;
+
+    logInUser(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const currentUser = userCredential.user;
+        setUser(currentUser);
+        if (userCredential?.user) {
+          setLoading(false);
+          toast.success("Login Success", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        }
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error;
+        const errorCode = error.code;
+        console.log(errorMessage, errorCode, "from signin");
+        toast.error(
+          `${
+            errorCode ===
+            ("auth/account-exists-with-different-credential" ||
+              "auth/email-already-in-use")
+              ? "Email already exists"
+              : "Registration Failed"
+          }`,
+          {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          }
+        );
+        setLoading(false);
+      });
+  };
+
   return (
     <div className="max-w-[1140px] min-h-[90vh] mx-auto px-2 sm:px-4 lg:px-7.5 xl:px-10 py-[80px] md:py-[100px] flex items-center justify-center">
       <div className="grid items-center justify-between w-full grid-cols-1 md:grid-cols-2">
@@ -56,7 +131,7 @@ const SignIn = () => {
                 Or
               </div>
               {/* Form */}
-              <form>
+              <form onSubmit={handleSubmit(handleSignIn)}>
                 <div className="grid gap-y-4">
                   {/* Form Group */}
                   <div>
@@ -68,10 +143,10 @@ const SignIn = () => {
                         type="email"
                         id="email"
                         name="email"
+                        {...register("email")}
                         className="block w-full px-4 py-3 text-sm border border-gray-200 shadow-sm bg-[#fff] rounded-lg focus:border-[#FF3811] focus:ring-[#FF3811]"
                         required=""
                         placeholder="Enter your email"
-                        aria-describedby="email-error"
                       />
                       <div className="absolute inset-y-0 hidden pointer-events-none end-0 pe-3">
                         <svg
@@ -86,13 +161,6 @@ const SignIn = () => {
                         </svg>
                       </div>
                     </div>
-                    <p
-                      className="hidden mt-2 text-xs text-red-600"
-                      id="email-error"
-                    >
-                      Please include a valid email address so we can get back to
-                      you
-                    </p>
                   </div>
                   {/* End Form Group */}
                   {/* Form Group */}
@@ -109,24 +177,27 @@ const SignIn = () => {
                     </div>
                     <div className="relative">
                       <input
-                        type="password"
+                        type={`${eye ? "text" : "password"}`}
                         id="password"
                         name="password"
+                        {...register("password")}
                         className="block w-full px-4 py-3 text-sm border border-gray-200 shadow-sm bg-[#fff] rounded-lg focus:border-[#FF3811] focus:ring-[#FF3811]"
                         required=""
                         placeholder=".........."
                       />
-                      <div className="absolute inset-y-0 hidden pointer-events-none end-0 pe-3">
-                        <svg
-                          className="text-red-500 size-5"
-                          width={16}
-                          height={16}
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                          aria-hidden="true"
-                        >
-                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                        </svg>
+                      <div
+                        className="absolute right-2 top-[30%]"
+                        onClick={() => setEye(!eye)}
+                      >
+                        <img
+                          className="w-5 h-5"
+                          src={`${
+                            eye
+                              ? "/assets/eyeOpen.svg"
+                              : "/assets/closedEye.svg"
+                          }`}
+                          alt="eye"
+                        />
                       </div>
                     </div>
                   </div>
@@ -161,6 +232,8 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

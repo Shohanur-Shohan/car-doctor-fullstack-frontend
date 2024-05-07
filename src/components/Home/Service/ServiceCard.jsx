@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({ image, text, price }) => {
   return (
-    <Link className="col-span-1 border rounded-md border-[#E8E8E8] p-2 sm:p-4">
+    <Link
+      to={"service-details/1"}
+      className="col-span-1 border rounded-md border-[#E8E8E8] p-2 sm:p-4"
+    >
       <div className="rounded-md">
         <img src={image} className="w-full rounded-md" alt="img" />
       </div>
