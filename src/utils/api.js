@@ -29,3 +29,12 @@ export const usersServiceOrders = async (email) => {
   const result = res?.data;
   return result;
 };
+
+//delete service
+export const deleteService = async (id) => {
+  const res = await axios.delete(
+    `${import.meta.env.VITE_URL}/delete-booked/${id}`
+  );
+  const result = res?.data;
+  return result;
+};
