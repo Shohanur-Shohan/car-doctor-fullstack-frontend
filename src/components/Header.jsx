@@ -1,6 +1,24 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/FirebaseAuthProvider";
+import { Bounce, toast } from "react-toastify";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handlelogOut = () => {
+    logOut();
+    toast.success("Logout Success", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
   return (
     <header className="w-full bg-primary shadow-md shadow-b-[5px] -shadow-spread-2">
       <div className="navbar max-w-[1536px] mx-auto justify-between flex items-center px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4">
@@ -32,14 +50,14 @@ const Header = () => {
                 About
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to={"/services"}
                 className="text-secondary  font-medium hover:text-[#FF3811] transition-colors"
               >
                 Services
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to={"/blogs"}
@@ -63,45 +81,50 @@ const Header = () => {
         <div className="navbar-end">
           <div className="flex items-center justify-end gap-2">
             {/* search & cart*/}
-            <div>
+            <Link to={"/cart-details"}>
               <img src="/assets/cart.svg" alt="cart" />
-            </div>
+            </Link>
             <div>
               <img src="/assets/search.svg" alt="img" />
             </div>
             {/* search & cart*/}
             {/* Profile */}
-            {/* <div
-                className="dropdown dropdown-end"
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="flex items-center justify-center rounded-full avatar"
               >
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="flex items-center justify-center rounded-full avatar"
-                >
-                  <div className="w-10 rounded-full">
-                    <img
-                      alt="avatar"
-                      className="object cover "
-                      src={`${user?.photoURL || "/assets/no-profile.png"} `}
-                    />
-                  </div>
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="avatar"
+                    className="object cover "
+                    src={`${user?.photoURL || "/assets/avatar.svg"} `}
+                  />
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[999] px-3 py-4 shadow bg-base-100 rounded-box w-52"
-                >
-                  <li className="pl-2 my-2 text-left text-secondary">
-                    Profile
-                  </li>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[999] px-3 py-4 shadow bg-base-100 rounded-box w-52"
+              >
+                <li className="pl-2 my-2 text-left text-secondary">Profile</li>
+                {user ? (
                   <button
                     onClick={() => handlelogOut()}
                     className="pl-2 my-2 text-left cursor-pointer text-secondary"
                   >
                     Logout
                   </button>
-                </ul>
-              </div> */}
+                ) : (
+                  <Link
+                    to={"/login"}
+                    className="pl-2 my-2 text-left cursor-pointer text-secondary"
+                  >
+                    Login
+                  </Link>
+                )}
+              </ul>
+            </div>
             {/* Profile */}
 
             <Link
@@ -169,14 +192,14 @@ const Header = () => {
                     About
                   </NavLink>
                 </li>
-                <li className="mb-5 ">
+                {/* <li className="mb-5 ">
                   <NavLink
                     to={"/services"}
                     className="my-1 text-[#1e1e1e] border border-transparent  font-medium hover:text-[#FF3811] transition-colors"
                   >
                     Services
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="mb-5 ">
                   <NavLink
                     to={"/blogs"}

@@ -19,7 +19,7 @@ const SignUp = () => {
     updateCurrentUser,
     setLoading,
     handleGoogleLogin,
-    handleGithubLogin,
+    setUser,
   } = useContext(AuthContext);
 
   const handleSignUp = (data) => {
@@ -37,19 +37,17 @@ const SignUp = () => {
         console.log(userCredential, "from signUp");
 
         updateCurrentUser(displayName);
-        if (userCredential?.user) {
-          toast.success("Registration Success", {
-            position: "top-right",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
-        }
+        toast.success("Registration Success", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
         // signout
         logOut();
         setLoading(false);
@@ -83,6 +81,52 @@ const SignUp = () => {
       });
   };
 
+  //google
+  const googleSignin = () => {
+    handleGoogleLogin()
+      .then((userCredential) => {
+        // Signed in
+        const currentUser = userCredential.user;
+        setUser(currentUser);
+        setLoading(false);
+        toast.success("Login Success", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorCode = error.errorCode;
+        toast.error(
+          `${
+            errorCode ===
+            ("auth/account-exists-with-different-credential" ||
+              "auth/email-already-in-use")
+              ? "Email already exists"
+              : "Registration Failed"
+          }`,
+          {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          }
+        );
+      });
+  };
+
   return (
     <>
       <div className="max-w-[1140px] min-h-[90vh] mx-auto px-2 sm:px-4 lg:px-7.5 xl:px-10 py-[80px] md:py-[100px] flex items-center justify-center">
@@ -107,7 +151,10 @@ const SignUp = () => {
                 </p>
               </div>
               <div className="mt-5">
-                <button className="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none ">
+                <button
+                  onClick={googleSignin}
+                  className="inline-flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
+                >
                   <svg
                     className="w-4 h-auto"
                     width={46}

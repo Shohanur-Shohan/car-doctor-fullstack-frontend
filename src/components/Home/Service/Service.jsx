@@ -1,6 +1,22 @@
+import { useQuery } from "react-query";
 import ServiceCard from "./ServiceCard";
+import { allServices } from "../../../utils/api";
+import Loader from "../../Loaders/Loader";
 
 const Service = () => {
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ["services"],
+    queryFn: allServices,
+  });
+
+  // console.log(data, "service");
+  if (isPending) {
+    return <Loader />;
+  }
+  if (isError) {
+    return <p>{error?.message}</p>;
+  }
+
   return (
     <div className="w-full my-[100px]">
       <div className="max-w-[1536px] mx-auto px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4">
@@ -17,46 +33,17 @@ const Service = () => {
         </div>
 
         <div className="grid items-center justify-center grid-cols-1 gap-6 mb-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
-          <ServiceCard
-            image={"/assets/service1.png"}
-            text={"Electrical System"}
-            price={20}
-          />
+          {data?.map((service) => {
+            return (
+              <ServiceCard
+                key={service?._id}
+                id={service?._id}
+                image={service?.img}
+                text={service?.title}
+                price={service?.price}
+              />
+            );
+          })}
         </div>
 
         <div className="flex justify-center">

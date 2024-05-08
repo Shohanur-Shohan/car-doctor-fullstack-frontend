@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
-const ServiceCard = ({ image, text, price }) => {
+import PropTypes from "prop-types";
+const ServiceCard = ({ image, text, price, id }) => {
   return (
     <Link
-      to={"service-details/1"}
+      to={`service-details/${id}`}
       className="col-span-1 border rounded-md border-[#E8E8E8] p-2 sm:p-4"
     >
       <div className="rounded-md">
@@ -19,5 +19,10 @@ const ServiceCard = ({ image, text, price }) => {
     </Link>
   );
 };
-
+ServiceCard.propTypes = {
+  image: PropTypes.string,
+  text: PropTypes.string,
+  price: PropTypes.string,
+  id: PropTypes.string,
+};
 export default ServiceCard;

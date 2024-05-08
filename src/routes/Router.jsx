@@ -13,6 +13,7 @@ import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import CartDetails from "../pages/CartDetails/CartDetails";
 import Order from "../pages/Order/Order";
 import Blogs from "../pages/Blog/Blogs";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const Router = createBrowserRouter([
   {
@@ -28,13 +29,25 @@ const Router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      // {
+      //   path: "/services",
+      //   element: <Services />,
+      // },
       {
-        path: "/services",
-        element: <Services />,
+        path: "/book-service/:id",
+        element: (
+          <ProtectedRoutes>
+            <Services />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/service-details/:id",
-        element: <ServiceDetails />,
+        element: (
+          <ProtectedRoutes>
+            <ServiceDetails />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/blogs",
@@ -54,11 +67,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/cart-details",
-        element: <CartDetails />,
+        element: (
+          <ProtectedRoutes>
+            <CartDetails />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/all-orders",
-        element: <Order />,
+        element: (
+          <ProtectedRoutes>
+            <Order />
+          </ProtectedRoutes>
+        ),
       },
     ],
   },

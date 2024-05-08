@@ -1,6 +1,24 @@
+import { useQuery } from "react-query";
 import BreadCrumb from "../../components/BreadCrumb";
+import { singleService } from "../../utils/api";
+import Loader from "../../components/Loaders/Loader";
+import { Link, useParams } from "react-router-dom";
+import OurService from "./OurService";
 
 const ServiceDetails = () => {
+  const { id } = useParams();
+  // console.log(id);
+  const { isPending, data, isError, error } = useQuery({
+    queryKey: ["serviceDetails"],
+    queryFn: () => singleService(id),
+  });
+  if (isPending) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <p>Error: {error.message}</p>;
+  }
   return (
     <main className="w-full min-h-screen">
       <div className="max-w-[1536px] mx-auto flex flex-row items-center px-2 sm:px-4 lg:px-7.5 xl:px-10 py-4 md:py-5">
@@ -11,83 +29,20 @@ const ServiceDetails = () => {
         <div className="grid justify-between w-full grid-cols-5 gap-6 xl:grid-cols-4">
           <article className="col-span-5 md:col-span-3">
             <div className="w-full mb-[40px]">
-              <img
-                src="/assets/service-bg.png"
-                className="w-full rounded-md"
-                alt="img"
-              />
+              <img src={data?.img} className="w-full rounded-md" alt="img" />
             </div>
             {/* content */}
             <div>
               <h1 className="text-[24px] lg:text-[34px] text-[#151515] font-bold">
-                Unique Car Engine Service
+                {data?.title}
               </h1>
               <p className="text-[#737373] text-[14px] md:text-md my-5">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don{"'"}t look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn{"'"}t anything embarrassing
-                hidden in the middle of text.
+                {data?.description}
               </p>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="col-span-1 bg-[#F3F3F3] rounded-md border-t-2 px-4 py-4 border-[#FF3811]">
-                  <h1 className="font-bold text-[#444444] text-[20px]">
-                    Easy Customer Service
-                  </h1>
-                  <p className="text-[14px] md:text-[16px] text-[#737373]">
-                    It uses a dictionary of over 200 Latin words, combined with
-                    a model sentence structures.
-                  </p>
-                </div>
-                <div className="col-span-1 bg-[#F3F3F3] rounded-md border-t-2 px-4 py-4 border-[#FF3811]">
-                  <h1 className="font-bold text-[#444444] text-[20px]">
-                    Easy Customer Service
-                  </h1>
-                  <p className="text-[14px] md:text-[16px] text-[#737373]">
-                    It uses a dictionary of over 200 Latin words, combined with
-                    a model sentence structures.
-                  </p>
-                </div>
-                <div className="col-span-1 bg-[#F3F3F3] rounded-md border-t-2 px-4 py-4 border-[#FF3811]">
-                  <h1 className="font-bold text-[#444444] text-[20px]">
-                    Easy Customer Service
-                  </h1>
-                  <p className="text-[14px] md:text-[16px] text-[#737373]">
-                    It uses a dictionary of over 200 Latin words, combined with
-                    a model sentence structures.
-                  </p>
-                </div>
-                <div className="col-span-1 bg-[#F3F3F3] rounded-md border-t-2 px-4 py-4 border-[#FF3811]">
-                  <h1 className="font-bold text-[#444444] text-[20px]">
-                    Easy Customer Service
-                  </h1>
-                  <p className="text-[14px] md:text-[16px] text-[#737373]">
-                    It uses a dictionary of over 200 Latin words, combined with
-                    a model sentence structures.
-                  </p>
-                </div>
-              </div>
-              <p className="text-[#737373] text-[14px] md:text-md my-5">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don{"'"}t look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn{"'"}t anything embarrassing
-                hidden in the middle of text.
-              </p>
-              <div>
-                <h1 className="text-[24px] lg:text-[34px] text-[#151515] font-bold">
-                  3 Simple Steps to Process
-                </h1>
-                <p className="text-[#737373] text-[14px] md:text-md my-5">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don{"'"}t
-                  look even slightly believable. If you are going to use a
-                  passage of Lorem Ipsum, you need to be sure there isn{"'"}t
-                  anything embarrassing hidden in the middle of text.
-                </p>
+                {data?.facility?.map((service, index) => {
+                  return <OurService key={index} service={service} />;
+                })}
               </div>
             </div>
             {/* content */}
@@ -238,11 +193,14 @@ const ServiceDetails = () => {
             {/* checkout */}
             <div>
               <h1 className="text-[#151515] font-bold text-[35px]">
-                Price $250.00
+                Price ${data?.price}
               </h1>
-              <button className="w-full text-center flex justify-center py-[7px] sm:py-[8px] xl:py-[12px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]">
-                Proceed Checkout
-              </button>
+              <Link
+                to={`/book-service/${data?._id}`}
+                className="w-full text-center flex justify-center py-[7px] sm:py-[8px] xl:py-[12px] hover:bg-transparent bg-[#FF3811] transition-colors border-[#FF3811] border rounded-md  font-medium hover:text-[#FF3811] text-[#fff]"
+              >
+                Proceed Order
+              </Link>
             </div>
             {/* checkout */}
           </aside>

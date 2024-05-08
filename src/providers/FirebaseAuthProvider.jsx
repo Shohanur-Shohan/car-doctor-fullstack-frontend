@@ -6,7 +6,6 @@ import {
   updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
-  GithubAuthProvider,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
@@ -20,7 +19,6 @@ const FirebaseAuthProvider = ({ children }) => {
 
   //providers
   const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
 
   //create user
   const createUser = (email, password) => {
@@ -47,18 +45,13 @@ const FirebaseAuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  //github
-  const handleGithubLogin = () => {
-    return signInWithPopup(auth, githubProvider);
-  };
-
   //signout
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  console.log(user);
+  // console.log(user);
 
   //onAuthStateChanged
   useEffect(() => {
@@ -84,7 +77,6 @@ const FirebaseAuthProvider = ({ children }) => {
     updateCurrentUser,
     logInUser,
     handleGoogleLogin,
-    handleGithubLogin,
   };
 
   return (
