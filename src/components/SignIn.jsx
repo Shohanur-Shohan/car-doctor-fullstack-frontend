@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../providers/FirebaseAuthProvider";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
+import { signinJwt } from "../utils/api";
 
 const SignIn = () => {
   const [eye, setEye] = useState(false);
@@ -11,6 +12,7 @@ const SignIn = () => {
   const { setLoading, logInUser, setUser, handleGoogleLogin } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     register,
@@ -23,23 +25,29 @@ const SignIn = () => {
     const password = data?.password;
 
     logInUser(email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // Signed in
         const currentUser = userCredential.user;
         setUser(currentUser);
         setLoading(false);
-        toast.success("Login Success", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        navigate("/");
+
+        // jwt token
+        const result = await signinJwt(currentUser?.email);
+        if (result?.status === "success") {
+          toast.success("Login Success", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          navigate(location?.state ? location?.state : "/");
+        }
+        // jwt token
       })
       .catch((error) => {
         const errorMessage = error;
@@ -88,7 +96,7 @@ const SignIn = () => {
           theme: "light",
           transition: Bounce,
         });
-        navigate("/");
+        // navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
         const errorCode = error.errorCode;
