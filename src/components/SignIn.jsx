@@ -50,9 +50,9 @@ const SignIn = () => {
         // jwt token
       })
       .catch((error) => {
-        const errorMessage = error;
+        // const errorMessage = error;
         const errorCode = error.code;
-        console.log(errorMessage, errorCode, "from signin");
+        // console.log(errorMessage, errorCode, "from signin");
         toast.error(
           `${
             errorCode ===
@@ -96,7 +96,7 @@ const SignIn = () => {
           theme: "light",
           transition: Bounce,
         });
-        // navigate(location?.state ? location?.state : "/");
+        navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
         const errorCode = error.errorCode;

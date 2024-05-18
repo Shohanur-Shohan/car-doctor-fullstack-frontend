@@ -56,6 +56,6 @@ export const signinJwt = async (userEmail) => {
     { withCredentials: true }
   );
   const result = res?.data;
-  console.log(result);
+  // console.log(result);
   return result;
 };

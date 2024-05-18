@@ -28,35 +28,37 @@ const SignUp = () => {
     // const photoURL = data?.photoUrl;
     const password = data?.password;
 
-    console.log(displayName, email, password);
+    // console.log(displayName, email, password);
 
     //create user
     createUser(email, password)
       .then((userCredential) => {
         // Signed up
-        console.log(userCredential, "from signUp");
+        // console.log(userCredential, "from signUp");
 
         updateCurrentUser(displayName);
-        toast.success("Registration Success", {
-          position: "top-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        // signout
-        logOut();
-        setLoading(false);
-        navigate("/login");
+        if (userCredential) {
+          toast.success("Registration Success", {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          // signout
+          logOut();
+          setLoading(false);
+          navigate("/login");
+        }
       })
       .catch((error) => {
-        const errorMessage = error;
+        // const errorMessage = error;
         const errorCode = error.code;
-        console.log(errorMessage, errorCode, "from signUp");
+        // console.log(errorMessage, errorCode, "from signUp");
         toast.error(
           `${
             errorCode ===
@@ -100,7 +102,7 @@ const SignUp = () => {
           theme: "light",
           transition: Bounce,
         });
-        navigate("/");
+        navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
         const errorCode = error.errorCode;

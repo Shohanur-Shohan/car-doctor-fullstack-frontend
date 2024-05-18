@@ -3,7 +3,7 @@ import { deleteService } from "../../utils/api";
 import { Bounce, toast } from "react-toastify";
 
 const CartItem = ({ item, refetch }) => {
-  console.log(item);
+  // console.log(item);
   const {
     _id,
     service_name,
